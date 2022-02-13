@@ -1,0 +1,17 @@
+# Potry file
+poetry.lock
+
+# Env file
+.env
+
+# cache dirs
+__pycache__
+
+# VS Code dir
+.vscode
+
+# dataset for testing files
+db*
+
+# Media Files
+media/

@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "vhub"
+version = "0.1.0"
+description = ""
+authors = ["André Rodrigues <andrelmarques11@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Django = "^4.0.2"
+django-rest-framework = "^0.1.0"
+python-dotenv = "^0.19.2"
+pandas = "^1.4.0"
+drf-yasg = "^1.20.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+ipython = "^8.0.1"
+pylint = "^2.12.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -3,7 +3,6 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.pagination import PageNumberPagination
 
 from .models import Data
 from .serializers import DataSerializer, DataDetailSerializer
@@ -15,9 +14,9 @@ class DataViewSet(viewsets.GenericViewSet):
     serializer_class = DataSerializer
     permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
 
-    def list(self, request: Request) -> Response:
+    def list(self, request: Request, dataset_id: int) -> Response:
         """Endpoint to handling data listing."""
-        data_list = self.get_queryset().filter(dataset__owner_id=request.user.id)
+        data_list = self.get_queryset().filter(dataset_id=dataset_id)
         page = self.paginate_queryset(data_list)
         if page is not None:
             serialized = self.get_serializer(page, many=True)

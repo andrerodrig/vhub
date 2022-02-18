@@ -4,7 +4,7 @@ from . import views as v
 
 # paths for /data
 urlpatterns = [
-    path("", v.DataViewSet.as_view(
+    path("datasets/<int:dataset_id>", v.DataViewSet.as_view(
         {
             "get": "list",
             "post": "create",

@@ -36,6 +36,11 @@ jobs:
       run: |
         # Run the migrations to setup the database
         poetry run python manage.py migrate
+    - name: Configure the secret key
+      run: |
+        # The .env file must to be created with the SECRET_KEY.
+        touch .env
+        echo "SECRET_KEY=testkeyforcisetup" > .env
     - name: Test with django
       run: |
         poetry run python manage.py test

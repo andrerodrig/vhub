@@ -4,7 +4,7 @@ from django.contrib.auth.base_user import BaseUserManager
 
 class UserManager(BaseUserManager):
     """Creates a custom user model manager."""
-    
+
     def create_user(
         self,
         email: str,
@@ -23,11 +23,16 @@ class UserManager(BaseUserManager):
         if not password:
             raise ValueError(_("The Password field cannot be empty."))
         email = self.normalize_email(email)
-        user = self.model(email=email, first_name=first_name, last_name=last_name, **extra_fields)
+        user = self.model(
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            **extra_fields
+        )
         user.set_password(password)
         user.save()
         return user
-    
+
     def create_superuser(
         self,
         email,
@@ -45,7 +50,10 @@ class UserManager(BaseUserManager):
         if extra_fields.get("is_active") is not True:
             raise ValueError(_("A superuser should be an active user."))
         if extra_fields.get("is_superuser") is not True:
-            raise ValueError(_("A superuser must have the is_superuser field setted as True."))
+            raise ValueError(
+                _("A superuser must have the is_superuser "
+                  "field setted as True.")
+            )
         return self.create_user(
             email=email,
             first_name=first_name,
@@ -53,6 +61,3 @@ class UserManager(BaseUserManager):
             password=password,
             **extra_fields
         )
-        
-    
-            

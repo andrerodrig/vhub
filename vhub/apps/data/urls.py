@@ -10,7 +10,7 @@ urlpatterns = [
             "post": "create",
         }
     )),
-        path("<int:pk>", v.DataDetailViewSet.as_view(
+    path("<int:pk>", v.DataDetailViewSet.as_view(
         {
             "get": "retrieve",
             "put": "update",
@@ -19,4 +19,3 @@ urlpatterns = [
         }
     ))
 ]
-

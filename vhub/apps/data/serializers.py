@@ -22,7 +22,7 @@ class DataSerializer(serializers.ModelSerializer):
 
 
 class DataDetailSerializer(serializers.ModelSerializer):
-    dataset = serializers.ReadOnlyField()
+    dataset = serializers.ReadOnlyField(source="dataset.id")
 
     class Meta:
         model = Data

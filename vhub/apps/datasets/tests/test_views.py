@@ -9,24 +9,13 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from vhub.apps.user.models import User
 
 
-class BaseDatasetTest:
+@override_settings(MEDIA_ROOT=settings.BASE_DIR / 'tests/media/')
+class BaseDatasetTest(APITestCase):
 
     fixtures = [
         "vhub/tests/test_dump_user.json",
         "vhub/tests/test_dump_datasets.json",
     ]
-
-    def _get_csv_file(self, filename: str) -> SimpleUploadedFile:
-        file = File(open(filename, "rb"))
-        return SimpleUploadedFile(
-            name=Path(filename).name,
-            content=file.read(),
-            content_type="text/csv",
-        )
-
-
-@override_settings(MEDIA_ROOT=settings.BASE_DIR / 'tests/media/')
-class TestDatasetViewSet(BaseDatasetTest, APITestCase):
 
     def setUp(self) -> None:
         # Creating the test user
@@ -39,6 +28,17 @@ class TestDatasetViewSet(BaseDatasetTest, APITestCase):
 
     def tearDown(self) -> None:
         self.user.delete()
+
+    def _get_csv_file(self, filename: str) -> SimpleUploadedFile:
+        file = File(open(filename, "rb"))
+        return SimpleUploadedFile(
+            name=Path(filename).name,
+            content=file.read(),
+            content_type="text/csv",
+        )
+
+
+class TestDatasetViewSet(BaseDatasetTest):
 
     def test_get_list_of_datasets(self):
         response = self.client.get("/api/datasets/")
@@ -58,20 +58,7 @@ class TestDatasetViewSet(BaseDatasetTest, APITestCase):
         self.assertEquals(response.status_code, 201)
 
 
-@override_settings(MEDIA_ROOT=settings.BASE_DIR / 'tests/media/')
-class TestDatasetDetailViewSet(BaseDatasetTest, APITestCase):
-
-    def setUp(self) -> None:
-        # Creating the test user
-        self.user = User.objects.get(pk=1)
-        self.token = Token.objects.create(user=self.user)
-        self.client.login(
-            email="test_user@gmail.com", password="12345"
-        )
-        self.client.force_authenticate(user=self.user, token=self.token.key)
-
-    def tearDown(self) -> None:
-        self.user.delete()
+class TestDatasetDetailViewSet(BaseDatasetTest):
 
     def test_retrieve_a_dataset(self):
         response = self.client.get("/api/datasets/1")

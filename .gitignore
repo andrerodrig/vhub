@@ -6,7 +6,6 @@ poetry.lock
 
 # cache dirs
 __pycache__
-.pytest_cache
 
 # VS Code dir
 .vscode

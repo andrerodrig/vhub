@@ -5,7 +5,7 @@ from .models import Data
 
 class DataSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source="owner.email")
-
+    
     class Meta:
         model = Data
         fields = [
@@ -19,11 +19,11 @@ class DataSerializer(serializers.ModelSerializer):
             "solved",
             "owner"
         ]
-
+        
 
 class DataDetailSerializer(serializers.ModelSerializer):
-    dataset = serializers.ReadOnlyField(source="dataset.id")
-
+    dataset = serializers.ReadOnlyField()
+    
     class Meta:
         model = Data
         fields = [

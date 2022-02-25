@@ -49,3 +49,12 @@ python manage.py runserver
 ```
 
 Now, access http://127.0.0.1:8000/api/swagger/ to see the Swagger documentation.
+
+------------------------------------------------
+
+## Running the unit tests
+If you want to run the unit tests, run the following command:
+
+```
+python manage.py test
+```

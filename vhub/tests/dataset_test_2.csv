@@ -1,0 +1,4 @@
+ASSET - HOSTNAME,ASSET - IP_ADDRESS,VULNERABILITY - TITLE,VULNERABILITY - SEVERITY,VULNERABILITY - CVSS,VULNERABILITY - PUBLICATION_DATE
+host-secunsdn-1,172.0.0.1,blabla / 6.0 / 6.5 / 6.7 DoS (blabla) (remote check),Médio,6.5,2018-07-19
+host-2,172.0.0.2,blabla / 6.0 / 6.5 / 6.7 DoS (blabla) (remote check),Médio,6.5,2018-07-21
+host-3,172.0.0.3,blabla / 6.0 / 6.5 / 6.7 DoS (blabla) (remote check),Médio,6.5,2018-10-10

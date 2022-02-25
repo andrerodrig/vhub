@@ -13,7 +13,6 @@ class UserViewSet(viewsets.GenericViewSet):
     Endpoint to handle User creation, listing, retrieving, updating and
     deletion.
     """
-
     queryset = User.objects.all()
     serializer_class = UserSerializer
     # Ony admin users can use thos viewset.
@@ -42,7 +41,7 @@ class UserViewSet(viewsets.GenericViewSet):
             if serialized.is_valid():
                 serialized.save()
                 return Response(
-                    data=serialized.data, status=status.HTTP_201_CREATED
+                    data=serialized.data, status=status.HTTP_202_ACCEPTED
                 )
             return Response(
                 data=serialized.data, status=status.HTTP_400_BAD_REQUEST

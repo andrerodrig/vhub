@@ -30,7 +30,7 @@ class Data(models.Model):
         editable=False
     )
     cvss = models.FloatField(blank=False, null=True)
-    publication_date = models.DateTimeField(
+    publication_date = models.DateField(
         _("publication date"),
         blank=False,
         null=True,

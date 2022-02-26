@@ -1,0 +1,22 @@
+[
+{
+  "model": "datasets.datasets",
+  "pk": 1,
+  "fields": {
+    "name": "Docamcasocmaso",
+    "file": "datasets/dataset_test.csv",
+    "created_at": "2022-02-14T11:07:23.237Z",
+    "owner": 1
+  }
+},
+{
+  "model": "datasets.datasets",
+  "pk": 2,
+  "fields": {
+    "name": "test_dataset",
+    "file": "datasets/dataset_test.csv",
+    "created_at": "2022-02-19T15:42:19.417Z",
+    "owner": 1
+  }
+}
+]

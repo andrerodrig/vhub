@@ -4,13 +4,13 @@ from . import views as v
 
 # paths for /data
 urlpatterns = [
-    path("", v.DataViewSet.as_view(
+    path("datasets/<int:dataset_id>", v.DataViewSet.as_view(
         {
             "get": "list",
             "post": "create",
         }
     )),
-        path("<int:pk>", v.DataDetailViewSet.as_view(
+    path("<int:pk>", v.DataDetailViewSet.as_view(
         {
             "get": "retrieve",
             "put": "update",
@@ -19,4 +19,3 @@ urlpatterns = [
         }
     ))
 ]
-

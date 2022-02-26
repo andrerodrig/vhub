@@ -12,7 +12,7 @@ class RegisterViewSet(viewsets.GenericViewSet):
     """Handles the user registering."""
     serializer_class = RegisterSerializer
     permission_classes = []
-    
+
     def register(self, request: Request):
         serialized = self.serializer_class(
             data=request.data,
@@ -28,13 +28,16 @@ class RegisterViewSet(viewsets.GenericViewSet):
                 },
                 status=status.HTTP_201_CREATED
             )
-        return Response(data=serialized.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+        return Response(
+            data=serialized.errors, status=status.HTTP_400_BAD_REQUEST
+        )
+
+
 class LoginViewSet(viewsets.GenericViewSet):
     """Handles the user login."""
     serializer_class = LoginSerializer
     permission_classes = []
-    
+
     def login(self, request: Request):
         serialized = self.serializer_class(
             data=request.data,

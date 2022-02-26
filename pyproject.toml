@@ -3,6 +3,11 @@ name = "vhub"
 version = "0.1.1"
 description = ""
 authors = ["André Rodrigues <andrelmarques11@gmail.com>"]
+include = [
+    "Makefile",
+    "README.md",
+    "manage.py",
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"

@@ -16,3 +16,9 @@ db*
 
 # Media Files
 media/
+
+# Virtualenv folder
+.venv
+
+# Build folder
+dist

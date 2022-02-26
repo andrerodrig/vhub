@@ -47,7 +47,7 @@ jobs:
     
   release:
     needs: build
-    if: github.event_name == "push" && github.ref == "refs/head/develop" && !contains(github.evend.head_commit.message, "chore(release):")
+    if: github.event_name == 'push' && github.ref == 'refs/head/develop' && !contains(github.evend.head_commit.message, 'chore(release):')
     
     runs-on: ubuntu-latest
 

@@ -11,33 +11,14 @@ The data are provided by endpoints to handle it and possibly to generate tables 
 ## Pre-requisites
 
 * [Python 3.8+](https://www.python.org/downloads/)
-* [Poetry](https://python-poetry.org/docs/#installation)
 
 ---
 ## Installation
 
-To install the package, clone the repository on github and run the following command:
+To install the package, run the following command:
 
 ```
-poetry install
-```
-
-Next, enter the virtualenv to be able getting access to django, with:
-
-```
-poetry shell
-```
-
-### Setting up environment variables
-
-Before continue, you need to generate the SECRET_KEY. To do this, rename the file `.env.example` to `.env`, generate the token and put it as value to `SECRET_KEY`.
-
-### Setting up the database
-
-To setup the databse run:
-
-```
-python manage.py migrate
+make install
 ```
 
 ### Running the API
@@ -45,7 +26,7 @@ python manage.py migrate
 Finally, run the **Vhub API** with:
 
 ```
-python manage.py runserver
+make run
 ```
 
 Now, access http://127.0.0.1:8000/api/swagger/ to see the Swagger documentation.
@@ -56,5 +37,5 @@ Now, access http://127.0.0.1:8000/api/swagger/ to see the Swagger documentation.
 If you want to run the unit tests, run the following command:
 
 ```
-python manage.py test
+make test
 ```

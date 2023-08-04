@@ -1,4 +1,5 @@
-# VHub
+VHub
+========
 
 VHub is an API that permits uploading of vulnerability datasets based on the following pattern of columns:
 
@@ -8,7 +9,8 @@ VHub is an API that permits uploading of vulnerability datasets based on the fol
 The data are provided by endpoints to handle it and possibly to generate tables and chats to get insights about the vulnerability data.
 
 ----
-## Pre-requisites
+ Pre-requisites
+ --------------
 
 * [Python 3.8+](https://www.python.org/downloads/)
 
